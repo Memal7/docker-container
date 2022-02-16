@@ -1,7 +1,7 @@
 FROM node
-WORKDIR /usr/src/app
-COPY package*.json ./
+WORKDIR /client
+COPY package*.json /client/
 RUN npm install
-COPY . .
-EXPOSE 4000
+COPY . /client/
+EXPOSE 3000
 CMD ["npm", "start"]
