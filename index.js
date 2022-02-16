@@ -1,26 +1,28 @@
 import express from 'express';
-import {MongoClient} from 'mongodb';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
+import routes from './src/routes/crmRoutes';
 
 const app = express();
 const PORT = 4000;
-const url = 'mongodb://localhost:27017';
-const client = new MongoClient(url);
 
-// Database Name
-const dbName = 'testDB';
+// mongoose connection
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://mongo:27017/crm');
 
-async function main() {
-  await client.connect();
-  const db = client.db(dbName);
-  const collection = db.collection('documents');
+// bodyparser setup
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-  return 'done.';
-}
+routes(app);
 
-app.get('/', (req, res) => {
-    res.json("Let's play with Docker-Container!!!");
-});
+// serving static files
+app.use(express.static('public'));
 
-app.listen(PORT, () => {
-    console.log('Your server is running on PORT:',PORT);
-});
+app.get('/', (req, res) =>
+    res.send(`Node and express server is running on port ${PORT}`)
+);
+
+app.listen(PORT, () =>
+    console.log(`your server is running on port ${PORT}`)
+);
