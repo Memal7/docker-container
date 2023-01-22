@@ -1,7 +1,7 @@
 # Docker CLI CheatSheet
 
 ## Create, validate and manage docker images:
-Download an image from [DockerHub](https://hub.docker.com/) and will be stored locally under
+Downloads an image from [DockerHub](https://hub.docker.com/) and will be stored locally under
 `/var/lib/docker/*` after processing from Docker-Engine. Docker pull takes via default always the latest-tag, except you defined something else.:
 ```
 docker pull <image-name:tag>
