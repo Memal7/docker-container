@@ -50,17 +50,17 @@ Create a container in interactive session and start bash in it:
 docker run --name=mycentos-container -it centos:latest /bin/bash
 ```
 
-List all running container:
+List all running containers:
 ```
 docker ps
 ```
 
-List all container:
+List all containers:
 ```
 docker ps -a
 ```
 
-List latest running container:
+List latest running containers:
 ```
 docker ps -l
 ```
@@ -81,12 +81,12 @@ Remove all stopped containers:
 docker rm $(docker ps -a -q)
 ```
 
-Start an available stopped container:
+Start a stopped container:
 ```
 docker start <container-id or name>
 ```
 
-Restarts a running container. With `-t` you can specify a maximum timeout:
+Restart a running container. With `-t` you can specify a maximum timeout:
 ```
 docker restart <container-id or name>
 ```
