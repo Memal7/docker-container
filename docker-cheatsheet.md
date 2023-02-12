@@ -22,20 +22,32 @@ Remove dangling images (images with `none:none --> REPOSITORY:TAG`):
 docker image prune
 ```
 
+See the history of an image:
+```
+docker image history nginx
+```
+
 This allows us to retrieve extended (meta) information about locally stored images. Meta information includes e.g. the complete ID of the image, tags, from which base image the existing image was image was derived from, the creation date, comments, build host, environment variables, the start command, the vendor and many more. But we can't find out anything about binaries, libraries and tools used in it:
 ```
 docker image inspect <image-id or image-name>
 ```
+
+### Note: To analyse your container image even more in details and explore contents of each layer in an image, look at to this tool: [dive](https://github.com/wagoodman/dive).
 ---
 ## Manage and operate container instances:
-Create a Centos container in interactive session:
-```
-docker container run --name=mycontainer -ti centos:latest
-```
-
 Create a container in detached session (default). If no --name=<container-instance-name> is specified, Docker chooses a two-part, underscore-separated random name for the container (e.g. blue_wall):
 ```
 docker run --name=nginx -d nginx:latest
+```
+
+Create a container in interactive session:
+```
+docker run --name=mycentos-container -it centos:latest
+```
+
+Create a container in interactive session and start bash in it:
+```
+docker run --name=mycentos-container -it centos:latest /bin/bash
 ```
 
 List all running container:
@@ -58,6 +70,17 @@ Stop a running container:
 docker stop <container-id or name>
 ```
 
+Stop all containers:
+```
+docker stop $(docker ps -q)
+```
+
+
+Remove all stopped containers:
+```
+docker rm $(docker ps -a -q)
+```
+
 Start an available stopped container:
 ```
 docker start <container-id or name>
@@ -78,14 +101,9 @@ Force delete without stopping first:
 docker rm -f  <container-id or name>
 ```
 
-See the history of ngx container to export this running container:
-```
-docker image history nginx
-```
-
 Export a stopped container (e.g. nginx) to an image:
 ```
-docker container export ngx > co7_export.tar; ls -la co7_export.tar
+docker export ngx > co7_export.tar; ls -la co7_export.tar
 ```
 
 Show an overview of the running processes inside the container:
