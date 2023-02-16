@@ -79,7 +79,6 @@ Stop all containers:
 docker stop $(docker ps -q)
 ```
 
-
 Remove all stopped containers:
 ```
 docker rm $(docker ps -a -q)
@@ -113,6 +112,11 @@ docker export ngx > co7_export.tar; ls -la co7_export.tar
 Show an overview of the running processes inside the container:
 ```
 docker top <container-id or name>
+```
+
+Display container logs:
+```
+docker logs <container-id or name>
 ```
 
 ---
