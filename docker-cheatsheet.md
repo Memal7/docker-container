@@ -1,6 +1,7 @@
 # Docker CLI CheatSheet
 
 ## Create, validate and manage docker images:
+
 Download an image from [DockerHub](https://hub.docker.com/) and will be stored locally under
 `/var/lib/docker/*` after processing from Docker-Engine. Docker pull takes via default always the latest-tag, except you defined something else.:
 ```
@@ -33,8 +34,11 @@ docker image inspect <image-id or image-name>
 ```
 
 ### Note: To analyse your container image even more in details and explore contents of each layer in an image, look at to this tool: [dive](https://github.com/wagoodman/dive).
+
 ---
+
 ## Manage and operate container instances:
+
 Create a container in detached session (default). If no --name=<container-instance-name> is specified, Docker chooses a two-part, underscore-separated random name for the container (e.g. blue_wall):
 ```
 docker run --name=nginx -d nginx:latest
@@ -112,5 +116,7 @@ docker top <container-id or name>
 ```
 
 ---
+
 ## Reference
+
 [Docker CLI Docs](https://docs.docker.com/engine/reference/commandline/cli/)
