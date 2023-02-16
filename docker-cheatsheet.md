@@ -119,6 +119,41 @@ Display container logs:
 docker logs <container-id or name>
 ```
 
+Display container logs with timestamps:
+```
+docker logs -t <container-id or name>
+```
+
+Display only the last couple lines of the container logs:
+```
+docker logs --tail <container-id or name>
+```
+
+Display container resource usage:
+```
+docker stats <container-id or name>
+```
+
+Constraint container memory usage to a given amount (`-m` or `--memory`):
+```
+docker run -d --name mycontainer -m="200m" nginx
+```
+
+Constraint container CPU usage to a given amount (`-c` or `--cpu`):
+```
+docker run -d --name mycontainer --cpus="1.5" nginx
+```
+
+Constraint container CPU cores (e.g. "0-2" means to use the first, second, and third CPU):
+```
+docker run -d --name mycontainer --cpuset-cpus="0-2" nginx
+```
+
+Set an environment variable (`-e` or `--env`):
+```
+docker run -d --name postgresDB -e POSTGRES_PASSWORD=secretpa$$ postgres
+```
+
 ---
 
 ## Reference
