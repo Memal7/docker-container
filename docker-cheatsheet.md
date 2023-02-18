@@ -159,6 +159,11 @@ Set an environment variable (`-e` or `--env`):
 docker run -d --name postgresDB -e POSTGRES_PASSWORD=secretpa$$ postgres
 ```
 
+Create a container in detached session and map a port (`external:internal`):
+```
+docker container -d --name hello-nginx -p 8080:80 nginx
+```
+
 ---
 
 ### Docker Networking
