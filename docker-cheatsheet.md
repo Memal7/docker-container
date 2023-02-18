@@ -41,17 +41,22 @@ docker image inspect <image-id or image-name>
 
 Create a container in detached session (default). If no --name=<container-instance-name> is specified, Docker chooses a two-part, underscore-separated random name for the container (e.g. blue_wall):
 ```
-docker run --name=nginx -d nginx:latest
+docker run -d --name=nginx nginx:latest
 ```
 
 Create a container in interactive session:
 ```
-docker run --name=mycentos-container -it centos:latest
+docker run -it --name=mycentos-container centos:latest
 ```
 
 Create a container in interactive session and start bash in it:
 ```
-docker run --name=mycentos-container -it centos:latest /bin/bash
+docker run -it --name=mycentos-container centos:latest /bin/bash
+```
+
+Create a container in interactive session with automatically delete option after exiting bash:
+```
+docker run -it --rm --name=mycentos-container centos:latest /bin/bash
 ```
 
 List all running containers:
