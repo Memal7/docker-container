@@ -161,7 +161,7 @@ docker run -d --name postgresDB -e POSTGRES_PASSWORD=secretpa$$ postgres
 
 ---
 
-### Docker Networking
+### Docker Networking - bridge (default)
 
 List all networks:
 ```
