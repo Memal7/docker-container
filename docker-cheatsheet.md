@@ -161,7 +161,9 @@ docker run -d --name postgresDB -e POSTGRES_PASSWORD=secretpa$$ postgres
 
 ---
 
-### Docker Networking - bridge (default)
+### Docker Networking
+
+Docker Networking drivers: *bridge (default), host, none*
 
 List all networks:
 ```
@@ -170,7 +172,7 @@ docker network ls
 
 Explore a network:
 ```
-docker network inspect / docker network inspect bridge
+docker network inspect
 ```
 
 Create a new network:
@@ -178,7 +180,7 @@ Create a new network:
 docker network create my_new_network
 ```
 
-Create a container and bind it to a network:
+Create a container and bind it to a *bridge* network:
 ```
 docker run -d --name nginx-container --network my_new_network nginx:latest
 ```
@@ -196,6 +198,16 @@ docker network connect bridge nginx-container
 Disconnect a container from a network:
 ```
 docker network disconnect my_new_network nginx-container
+```
+
+Create a container and bind it to a *host* network. Inside the container check with `ifconfig`:
+```
+docker run -it --name mycontainer --network host alpine bash
+```
+
+Create a container with *none* networking driver option:
+```
+docker run --rm -it --network none alpine bash
 ```
 
 ---
