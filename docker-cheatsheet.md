@@ -1,6 +1,6 @@
 # Docker CLI CheatSheet
 
-## Create, validate and manage docker images:
+## Create, validate and manage docker images
 
 Download an image from [DockerHub](https://hub.docker.com/) and will be stored locally under
 `/var/lib/docker/*` after processing from Docker-Engine. Docker pull takes via default always the latest-tag, except you defined something else.:
@@ -37,7 +37,7 @@ docker image inspect <image-id or image-name>
 
 ---
 
-## Manage and operate container instances:
+## Manage and operate container instances
 
 Create a container in detached session (default). If no --name=<container-instance-name> is specified, Docker chooses a two-part, underscore-separated random name for the container (e.g. blue_wall):
 ```
@@ -157,6 +157,57 @@ docker run -d --name mycontainer --cpuset-cpus="0-2" nginx
 Set an environment variable (`-e` or `--env`):
 ```
 docker run -d --name postgresDB -e POSTGRES_PASSWORD=secretpa$$ postgres
+```
+
+---
+
+### Docker Volume
+
+Display all volumes:
+```
+docker volumes ls
+```
+
+Create a volume: 
+```
+docker volume create myVolume
+```
+
+Inspect a volume:
+```
+docker volume inspect myVolume
+```
+
+Delete a volume:
+```
+docker volume rm myVolume
+```
+
+Create a container with automatically delete option and mount it to a volume (test-folder going to be created automatically):
+```
+docker run -it --rm --name=mycentos-container -v myVolume:/test-folder centos:latest /bin/bash 
+```
+
+Within the container first move the test-folder inside the volume, then create a test-file:
+```
+cd test-folder
+echo "hello world container volume" > test-file.txt
+ls
+exit 
+```
+
+Create an another container and check, if the `test-folder/test-file` inside the volume still exits:
+```
+docker container run -it --rm -v myVolume:/test-folder2 alpine sh
+cd test-folder2
+ls
+cat test-file.txt
+exit
+```
+
+Create a container and mount it with a volume, but with read-only option (`ro`)):
+```
+docker container run -it --rm --name myubuntu -v myVolume:/test-folder3:ro ubuntu bash
 ```
 
 ---
