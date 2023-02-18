@@ -161,6 +161,45 @@ docker run -d --name postgresDB -e POSTGRES_PASSWORD=secretpa$$ postgres
 
 ---
 
+### Docker Networking
+
+List all networks:
+```
+docker network ls
+```
+
+Explore a network:
+```
+docker network inspect / docker network inspect bridge
+```
+
+Create a new network:
+```
+docker network create my_new_network
+```
+
+Create a container and bind it to a network:
+```
+docker run -d --name nginx-container --network my_new_network nginx:latest
+```
+
+Explore the configuration of the container network:
+```
+docker inspect nginx-container
+```
+
+Connect the container to another bridge network:
+```
+docker network connect bridge nginx-container
+```
+
+Disconnect a container from a network:
+```
+docker network disconnect my_new_network nginx-container
+```
+
+---
+
 ### Docker Volume
 
 Display all volumes:
