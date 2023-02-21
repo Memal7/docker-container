@@ -2,7 +2,7 @@
 node-modules
 
 # data
-journal
+/data/journal
 *.wt
 *lock
 *.log
