@@ -1,2 +1,9 @@
+# node-modules
 node-modules
-data/
+
+# data
+journal
+*.wt
+*lock
+*.log
+*turtle
