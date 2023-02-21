@@ -86,7 +86,12 @@ docker stop $(docker ps -q)
 
 Remove all stopped containers:
 ```
-docker rm $(docker ps -a -q)
+docker rm $(docker ps -aq)
+```
+
+Remove all containers without stopping first:
+```
+docker rm -f $(docker ps -aq)
 ```
 
 Start a stopped container:
@@ -267,6 +272,10 @@ docker container run -it --rm --name myubuntu -v myVolume:/test-folder3:ro ubunt
 ```
 
 ---
+
+docker build -t memal7/nodejs-app:v1 .
+
+docker push memal7/nodejs-app:v1 
 
 ## Reference
 
