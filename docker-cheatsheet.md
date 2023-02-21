@@ -48,7 +48,7 @@ docker image inspect <image-id or image-name>
 
 ---
 
-## Manage and operate container instances
+## Manage and operate docker container instances
 
 <details>
   <summary>Click to expand!</summary>
@@ -213,7 +213,7 @@ docker container -d --name hello-nginx -p 8080:80 nginx
 
 ---
 
-## Docker Networking
+## Docker container networking
 
 <details>
   <summary>Click to expand!</summary>
@@ -278,7 +278,7 @@ docker run --rm -it --network none alpine bash
 
 ---
 
-## Docker Volume
+## Docker container volume
 
 <details>
   <summary>Click to expand!</summary>
