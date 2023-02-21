@@ -17,7 +17,7 @@ Docker (e.g. [Docker Desktop](https://www.docker.com/products/docker-desktop/))
 To build all 3 containers at once from [docker-compose.yml](./docker-compose.yml), run the following command:
 
 ```
-docker-compose up .
+docker-compose up
 ```
 
 Otherwise, start with the [Cheatsheet](docker-cheatsheet.md) first and try to understand what each command does. Then look at the Dockerfiles in [api folder](./api/) and [client folder](./client/) and also understand what each instruction does in the Dockerfiles.
