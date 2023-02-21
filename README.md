@@ -2,7 +2,7 @@
 
 This repo demonstrates containerization of a 3-tier node.js application with Docker and Docker-Compose.
 
-In addition the [Cheatsheet](docker-cheatsheet.md) explains some fundamental aspects of Docker containers such as create and manage container images and how to create, manage, and operate container instances.
+In addition the [CheatSheet](docker-cheatsheet.md) explains some fundamental aspects of Docker containers such as create and manage container images and how to create, manage, and operate container instances.
 
 ---
 
